@@ -30,27 +30,49 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Chatbot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Queries</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 20vh;
+    }
+    .query {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+</style>
 </head>
 <body>
-    <div id="chat-container"></div>
-    <input type="text" id="user-input" placeholder="Type your message...">
-    <button onclick="sendMessage()">Send</button>
+<h1>Random Queries:</h1>
+<div class="query" id="query"></div>
+<script>
+    const apiKey = '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';
+    const queryElement = document.getElementById('query');
 
-    <script src="https://cdn.jsdelivr.net/npm/@openai/chatbot"></script>
-    <script>
-        const chatbot = new OpenAIChatbot({
-            apiKey: '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',
-            container: document.getElementById('chat-container')
-        });
-
-        function sendMessage() {
-            const userInput = document.getElementById('user-input').value;
-            chatbot.sendMessage(userInput);
-            document.getElementById('user-input').value = '';
-        }
-    </script>
+    fetch('https://api.openai.com/v1/engines/davinci/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+            prompt: 'Generate a random query',
+            max_tokens: 100
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        queryElement.textContent = data.choices[0].text.trim();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        queryElement.textContent = 'Failed to fetch random query.';
+    });
+</script>
 </body>
 </html>
