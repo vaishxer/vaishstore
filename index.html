@@ -30,49 +30,32 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telegram Bot Message</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-    input[type="text"] {
-        padding: 8px;
-        margin: 10px;
-        width: 200px;
-    }
-    button {
-        padding: 8px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-</style>
+    <title>AI Query</title>
 </head>
 <body>
-<h1>Send Message to Telegram Bot</h1>
-<input type="text" id="message" placeholder="Type your message here">
-<button onclick="sendMessage()">Send Message</button>
-<script>
-    function sendMessage() {
-        const message = document.getElementById('message').value;
-        const botToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
-        const telegramId = '1776168152';
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${telegramId}&text=${message}`;
-        fetch(url)
+    <input type="text" id="userInput" placeholder="Enter your query...">
+    <button onclick="getAnswer()">Get Answer</button>
+    <p id="answer"></p>
+
+    <script>
+        function getAnswer() {
+            const userInput = document.getElementById('userInput').value;
+            fetch('https://api.openai.com/v1/answers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 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'
+                },
+                body: JSON.stringify({ question: userInput })
+            })
             .then(response => response.json())
             .then(data => {
-                alert('Message sent successfully!');
+                document.getElementById('answer').innerText = data.answer;
             })
-            .catch(error => {
-                alert('An error occurred. Please try again.');
-            });
-    }
-</script>
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </body>
 </html>
