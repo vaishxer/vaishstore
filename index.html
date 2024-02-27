@@ -33,22 +33,30 @@
 <html>
 <head>
     <title>AI Chatbot</title>
-    <script src="https://cdn.jsdelivr.net/npm/@chatscope/chat-ui-kit/dist/index.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chatscope/chat-ui-kit/dist/index.css">
 </head>
 <body>
-    <div id="chat-container"></div>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
     <script>
-        const chatContainer = document.getElementById('chat-container');
-        const bot = new ChatBot({
-            container: chatContainer,
-            state: {
-                user: 'You',
-                bot: 'AI Bot'
-            },
-            key: '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',
-            design: 'professional'
-        });
+        const openAIKey = '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';
+
+        function sendMessage() {
+            const userMessage = document.getElementById('user-input').value;
+            displayMessage(userMessage, 'user');
+            // Call AI function here using openAIKey
+        }
+
+        function displayMessage(message, sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.innerText = message;
+            chatMessages.appendChild(messageElement);
+        }
     </script>
 </body>
 </html>
