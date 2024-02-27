@@ -32,30 +32,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Query</title>
+    <title>AI Chatbot</title>
+    <script src="https://cdn.jsdelivr.net/npm/@chatscope/chat-ui-kit/dist/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chatscope/chat-ui-kit/dist/index.css">
 </head>
 <body>
-    <input type="text" id="userInput" placeholder="Enter your query...">
-    <button onclick="getAnswer()">Get Answer</button>
-    <p id="answer"></p>
-
+    <div id="chat-container"></div>
     <script>
-        function getAnswer() {
-            const userInput = document.getElementById('userInput').value;
-            fetch('https://api.openai.com/v1/answers', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
-                },
-                body: JSON.stringify({ question: userInput })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('answer').innerText = data.answer;
-            })
-            .catch(error => console.error('Error:', error));
-        }
+        const chatContainer = document.getElementById('chat-container');
+        const bot = new ChatBot({
+            container: chatContainer,
+            state: {
+                user: 'You',
+                bot: 'AI Bot'
+            },
+            key: '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',
+            design: 'professional'
+        });
     </script>
 </body>
 </html>
