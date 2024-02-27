@@ -24,3 +24,41 @@
 <body>
    
 </html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Text Animation</title>
+<style>
+    @keyframes neon {
+        0% {
+            text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px yellow, 0 0 70px yellow, 0 0 80px yellow, 0 0 100px yellow, 0 0 150px yellow;
+        }
+        50% {
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px yellow, 0 0 35px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 75px yellow;
+        }
+        100% {
+            text-shadow: 0 0 2px white, 0 0 5px white, 0 0 7px white, 0 0 10px yellow, 0 0 17px yellow, 0 0 20px yellow, 0 0 25px yellow, 0 0 37px yellow;
+        }
+    }
+
+    h1 {
+        font-size: 3em;
+        text-align: center;
+        color: transparent;
+        letter-spacing: 5px;
+        animation: neon 1.5s ease-in-out infinite;
+    }
+</style>
+</head>
+<body>
+    <h1>Hola there! Welcome to my world!</h1>
+</body>
+</html>
+
