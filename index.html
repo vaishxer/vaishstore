@@ -32,31 +32,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Bot Integration</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram Bot Message</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 8px;
+        margin: 10px;
+        width: 200px;
+    }
+    button {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
-    <div id="messages"></div>
-
-    <script>
+<h1>Send Message to Telegram Bot</h1>
+<input type="text" id="message" placeholder="Type your message here">
+<button onclick="sendMessage()">Send Message</button>
+<script>
+    function sendMessage() {
+        const message = document.getElementById('message').value;
         const botToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
         const telegramId = '1776168152';
-
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${telegramId}&text=`;
-
-        function getMessage() {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const message = data.result.text;
-                    document.getElementById('messages').innerHTML = message;
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        getMessage();
-    </script>
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${telegramId}&text=${message}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                alert('Message sent successfully!');
+            })
+            .catch(error => {
+                alert('An error occurred. Please try again.');
+            });
+    }
+</script>
 </body>
 </html>
