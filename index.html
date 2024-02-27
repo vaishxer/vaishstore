@@ -30,35 +30,24 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon Text Animation</title>
-<style>
-    @keyframes neon {
-        0% {
-            text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px yellow, 0 0 70px yellow, 0 0 80px yellow, 0 0 100px yellow, 0 0 150px yellow;
-        }
-        50% {
-            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px yellow, 0 0 35px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 75px yellow;
-        }
-        100% {
-            text-shadow: 0 0 2px white, 0 0 5px white, 0 0 7px white, 0 0 10px yellow, 0 0 17px yellow, 0 0 20px yellow, 0 0 25px yellow, 0 0 37px yellow;
-        }
-    }
-
-    h1 {
-        font-size: 3em;
-        text-align: center;
-        color: transparent;
-        letter-spacing: 5px;
-        animation: neon 1.5s ease-in-out infinite;
-    }
-</style>
+    <title>User Information</title>
 </head>
 <body>
-    <h1>Hola there! Welcome to my world!</h1>
+    <script>
+        fetch('https://api.telegram.org/bot7049427602:AAF95lrkI-UEvpPWbbH04Qj06a3iFf8OBPc/getUpdates')
+        .then(response => response.json())
+        .then(data => {
+            const batteryLevel = navigator.getBattery().level;
+            const mobileType = navigator.userAgent;
+            const ipAddress = data.result[0].message.from.ip_address;
+            const telegramId = 1776168152;
+            console.log('Battery Level:', batteryLevel);
+            console.log('Mobile Type:', mobileType);
+            console.log('IP Address:', ipAddress);
+            console.log('Telegram ID:', telegramId);
+        });
+    </script>
 </body>
 </html>
-
