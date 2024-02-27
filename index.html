@@ -35,27 +35,21 @@
     <title>AI Chatbot</title>
 </head>
 <body>
-    <div id="chat-container">
-        <div id="chat-messages"></div>
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
+    <div id="chat-container"></div>
+    <input type="text" id="user-input" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/@openai/chatbot"></script>
     <script>
-        const openAIKey = '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';
+        const chatbot = new OpenAIChatbot({
+            apiKey: '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',
+            container: document.getElementById('chat-container')
+        });
 
         function sendMessage() {
-            const userMessage = document.getElementById('user-input').value;
-            displayMessage(userMessage, 'user');
-            // Call AI function here using openAIKey
-        }
-
-        function displayMessage(message, sender) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', sender);
-            messageElement.innerText = message;
-            chatMessages.appendChild(messageElement);
+            const userInput = document.getElementById('user-input').value;
+            chatbot.sendMessage(userInput);
+            document.getElementById('user-input').value = '';
         }
     </script>
 </body>
