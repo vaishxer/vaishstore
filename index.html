@@ -30,28 +30,33 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Bot Integration</title>
 </head>
 <body>
+    <div id="messages"></div>
+
     <script>
-        const botApiToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
+        const botToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
         const telegramId = '1776168152';
 
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${telegramId}&text=`;
 
-        
-const bot = new TelegramBot(botToken, { polling: true });
+        function getMessage() {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const message = data.result.text;
+                    document.getElementById('messages').innerHTML = message;
+                })
+                .catch(error => console.error('Error:', error));
+        }
 
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Mobile Charge: {charge_amount}');
-  bot.sendMessage(chatId, 'Data Type: {data_type}');
-  bot.sendMessage(chatId, 'Mobile Name: {mobile_name}');
-});
-
-        // Code to send data to Telegram Bot
-        // Implement your logic here
+        getMessage();
     </script>
 </body>
 </html>
