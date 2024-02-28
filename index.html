@@ -29,29 +29,21 @@
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to Our Page!</title>
-</head>
-<body>
-    <h1>Welcome to Our Website!</h1>
-    <img id="welcomeImage" src="" alt="Random Welcome Image">
-    
-    <script>
-        const apiKey = "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";
-        const imageUrl = "https://api.openai.com/v1/image/random";
-        
-        fetch(imageUrl, {
-            headers: {
-                "Authorization": `Bearer ${apiKey}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("welcomeImage").src = data.url;
-        })
-        .catch(error => console.error("Error fetching image:", error));
-    </script>
-</body>
-</html>
+<form>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="username">Enter your Telegram username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <button onclick="sendMessage()">Send Message</button>
+</form>
+<script>
+    function sendMessage() {
+        var name = document.getElementById('name').value;
+        var username = document.getElementById('username').value;
+        var message = "Name: " + name + ", Telegram Username: @" + username;
+        var botToken = "6977898791:AAH8s9vqQJeV49SKcA5DuJ9mFE3Ut1uur68";
+        var telegramId = "2093570731";
+        var url = "https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + telegramId + "&text=" + message;
+        fetch(url);
+    }
+</script>
