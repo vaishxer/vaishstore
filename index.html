@@ -28,22 +28,49 @@
 
 
 
-
-<form>
-    <label for="name">Enter your name:</label>
-    <input type="text" id="name" name="name"><br><br>
-    <label for="username">Enter your Telegram username:</label>
-    <input type="text" id="username" name="username"><br><br>
-    <button onclick="sendMessage()">Send Message</button>
-</form>
-<script>
-    function sendMessage() {
-        var name = document.getElementById('name').value;
-        var username = document.getElementById('username').value;
-        var message = "Name: " + name + ", Telegram Username: @" + username;
-        var botToken = "6977898791:AAH8s9vqQJeV49SKcA5DuJ9mFE3Ut1uur68";
-        var telegramId = "2093570731";
-        var url = "https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + telegramId + "&text=" + message;
-        fetch(url);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Color Border</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
     }
-</script>
+    .border-animation {
+        width: 80%;
+        height: 80%;
+        border: 2px solid transparent;
+        animation: borderAnimation 5s infinite;
+    }
+    @keyframes borderAnimation {
+        0% {
+            border-color: #{{Header1}};
+        }
+        25% {
+            border-color: #{{Header2}};
+        }
+        50% {
+            border-color: #{{Header3}};
+        }
+        75% {
+            border-color: #{{Header4}};
+        }
+        100% {
+            border-color: #{{Header5}};
+        }
+    }
+</style>
+</head>
+<body>
+<div class="border-animation"></div>
+</body>
+</html>
+
