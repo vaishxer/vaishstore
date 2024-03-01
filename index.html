@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Theme Website</title>
+<style>
+    body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+    .border-animation {
+        width: 200px;
+        height: 100px;
+        border: 2px solid transparent;
+        animation: borderAnimation 2s infinite;
+    }
+    @keyframes borderAnimation {
+        0% {
+            border-color: red;
+        }
+        50% {
+            border-color: blue;
+        }
+        100% {
+            border-color: red;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="border-animation"></div>
+</body>
+</html>
 
