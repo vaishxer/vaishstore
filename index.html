@@ -33,3 +33,57 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+    .slider {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+    }
+    .slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: transform 1s ease;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+<div class="slider">
+    <div class="slide">
+        <img src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
+    </div>
+    <div class="slide">
+        <img src="https://mallucampaign.in/images/img_1709296485.jpg" alt="Image 2">
+    </div>
+</div>
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const slideInterval = setInterval(nextSlide, 3000);
+
+    function nextSlide() {
+        slides[currentSlide].style.transform = 'translateX(-100%)';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.transform = 'translateX(0)';
+    }
+</script>
+</body>
+</html>
