@@ -1,93 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Top Navigation</title>
 <style>
-    .topnav {
-        background-color: #333;
-        overflow: hidden;
-    }
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
 
-    .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
 
 <div class="topnav">
-  <a href="https://t.me/">TELEGRAM</a>
-  <a href="https://wa.me/">WHATSAPP</a>
+  <a href="#" onclick="openPopup()">About</a>
+  <a href="https://t.me/" target="_blank">Telegram</a>
 </div>
 
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Form</title>
-</head>
-<body>
-
-<form id="contactForm">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required><br><br>
-
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required><br><br>
-
-    <label for="country">Country:</label>
-    <input type="text" id="country" name="country" required><br><br>
-
-    <label for="subject">Subject:</label>
-    <textarea id="subject" name="subject" required></textarea><br><br>
-
-    <button type="button" onclick="sendMessage()">Send Message</button>
-</form>
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <p>WEB PAGE BY PRIVATE METHODS</p>
+  </div>
+</div>
 
 <script>
-    function sendMessage() {
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const country = document.getElementById('country').value;
-        const subject = document.getElementById('subject').value;
-        
-        const message = `↕PRIVATE METHODS SUPPORT 
-        USER ${firstName} ${lastName} |
-        Country: ${country} |
-        Subject: ${subject} |`;
-        
-        const botToken = '7087761711:AAEH5vZDGJH9Ia3qrmxJxLB7CWrGtC08Pgs';
-        const telegramId = '-1002119663903';
-        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${telegramId}&text=${message}`;
-        
-        fetch(url, { method: 'POST' })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                } else {
-                    alert('Failed to send message. Please try again.');
-                }
-            })
-            .catch(error => alert('An error occurred. Please try again later.'));
-    }
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
 </script>
 
 </body>
