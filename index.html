@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Countdown Timer</title>
-<style>
-  .countdown {
-    font-size: 24px;
-    animation: countdown-animation 5s forwards;
-  }
-  @keyframes countdown-animation {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIVATE METHODS </title>
+    <style>
+        :root {
+            --bg-color: #fff; /* Default background color */
+            --text-color: #333; /* Default text color */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            --bg-color: #333; /* Dark mode background color */
+            --text-color: #fff; /* Dark mode text color */
+        }
+    </style>
 </head>
 <body>
-<div id="timer" class="countdown">10</div>
-<script>
-  const timerElement = document.getElementById('timer');
-  let timeLeft = 10;
-  const countdown = setInterval(() => {
-    timeLeft--;
-    timerElement.textContent = timeLeft;
-    if (timeLeft === 0) {
-      clearInterval(countdown);
-      timerElement.textContent = 'USER NAME: PASSWORD:';
-    }
-  }, 1000);
-</script>
+    <h1>PRIVATE METHODS OFFICIAL</h1>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
