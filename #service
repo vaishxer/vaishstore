@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+  .countdown {
+    font-size: 24px;
+    animation: countdown-animation 5s forwards;
+  }
+  @keyframes countdown-animation {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+<div id="timer" class="countdown">10</div>
+<script>
+  const timerElement = document.getElementById('timer');
+  let timeLeft = 10;
+  const countdown = setInterval(() => {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+      timerElement.textContent = 'USER NAME: PASSWORD:';
+    }
+  }, 1000);
+</script>
+</body>
+</html>
