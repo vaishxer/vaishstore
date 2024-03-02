@@ -3,36 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theme Change Button</title>
+<title>Theme Switcher</title>
 <style>
   body {
-    background-color: #f0f0f0; /* Default background color */
-    color: #333; /* Default text color */
-    transition: all 0.5s; /* Smooth transition effect */
+    transition: background-color 0.5s;
+    padding: 20px;
+    text-align: center;
   }
-  .theme-button {
+  button {
     padding: 10px 20px;
-    border: 2px solid white; /* White border */
-    box-shadow: 2px 2px 5px white; /* White shadow */
-    border-radius: 5px; /* Nice edge */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Button text color */
+    border: 2px solid white;
+    box-shadow: 2px 2px 5px white;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
   }
-  .dark-theme {
-    background-color: #333; /* Dark theme background color */
-    color: white; /* Dark theme text color */
+  .dark {
+    background-color: #333;
+    color: white;
   }
 </style>
 </head>
 <body>
-<button class="theme-button" onclick="changeTheme()">Change Theme</button>
+  <h1>Theme Switcher</h1>
+  <button onclick="toggleTheme()">Change Theme</button>
 
-<script>
-  function changeTheme() {
-    const body = document.querySelector('body');
-    body.classList.toggle('dark-theme');
-  }
-</script>
+  <script>
+    function toggleTheme() {
+      const body = document.querySelector('body');
+      body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
