@@ -1,46 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Image Changing Animation</title>
-<style>
-    #imageContainer {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        overflow: hidden;
-    }
-    #imageContainer img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.5s;
-    }
-</style>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <body>
-<div id="imageContainer">
-    <img id="image" src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
-</div>
 
-<script>
-    const images = [
-        "https://mallucampaign.in/images/img_1709296484.jpg",
-        "https://mallucampaign.in/images/img_1709296485.jpg"
-    ];
-    const imageElement = document.getElementById('image');
-    let currentIndex = 0;
-
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        imageElement.style.opacity = 0;
-        setTimeout(() => {
-            imageElement.src = images[currentIndex];
-            imageElement.style.opacity = 1;
-        }, 500);
-    }, 3000);
-</script>
-</body>
-</html>
+<!-- Navigation -->
+<nav class="w3-bar w3-black">
+  <a href="#home" class="w3-button w3-bar-item">Home</a>
+  <a href="#band" class="w3-button w3-bar-item">Band</a>
+  <a href="#tour" class="w3-button w3-bar-item">Tour</a>
+  <a href="#contact" class="w3-button w3-bar-item">Contact</a>
+</nav>
