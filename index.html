@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image Animation</title>
     <style>
-        .image-container {
-            text-align: center;
-            overflow: hidden;
-            width: 300px;
-            height: 200px;
-            position: relative;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            position: absolute;
-            transition: transform 0.5s ease;
+        img {
+            width: 200px;
+            animation: spin 4s linear infinite;
         }
-        .image-container img:first-child {
-            left: 0;
-        }
-        .image-container img:nth-child(2) {
-            left: 100%;
-        }
-        .image-container:hover img:first-child {
-            transform: translateX(-100%);
-        }
-        .image-container:hover img:nth-child(2) {
-            transform: translateX(0);
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
-        <img src="https://mallucampaign.in/images/img_1709296485.jpg" alt="Image 2">
+    <div class="container">
+        <img id="randomImage" src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Random Image">
     </div>
+    <script>
+        const images = [
+            "https://mallucampaign.in/images/img_1709296484.jpg",
+            "https://mallucampaign.in/images/img_1709296485.jpg"
+        ];
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById("randomImage").src = images[randomIndex];
+    </script>
 </body>
 </html>
