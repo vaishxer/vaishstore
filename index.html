@@ -83,3 +83,41 @@ function closePopup() {
 
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Bar</title>
+<style>
+.icon-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url('https://mallucampaign.in/images/img_1709393093.jpg') no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  margin: 0 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="icon-bar">
+  <div class="icon" onclick="window.location.href='home.html'"></div>
+</div>
+
+</body>
+</html>
