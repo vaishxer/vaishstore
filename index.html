@@ -1,126 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
 <style>
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
-.popup-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+  .countdown {
+    font-size: 24px;
+    animation: countdown-animation 5s forwards;
+  }
+  @keyframes countdown-animation {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
 </style>
 </head>
 <body>
-
-<div class="topnav">
-  <a href="#" onclick="openPopup()">About</a>
-  <a href="https://t.me/" target="_blank">Telegram</a>
-</div>
-
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <p>WEB PAGE BY PRIVATE METHODS</p>
-  </div>
-</div>
-
+<div id="timer" class="countdown">10</div>
 <script>
-function openPopup() {
-  document.getElementById("popup").style.display = "block";
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
+  const timerElement = document.getElementById('timer');
+  let timeLeft = 10;
+  const countdown = setInterval(() => {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+      timerElement.textContent = 'USER NAME: PASSWORD:';
+    }
+  }, 1000);
 </script>
-
 </body>
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Icon Bar</title>
-    <style>
-        .icon-bar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .icon {
-            display: inline-block;
-            padding: 10px;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="icon-bar">
-        <span class="icon" onclick="window.location.href='#service'">
-            <img src="https://mallucampaign.in/images/img_1709393093.jpg" alt="Home" style="width: 30px; height: 30px;">
-        </span>
-    </div>
-</body>
-
 </html>
