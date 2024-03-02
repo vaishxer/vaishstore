@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRIVATE METHODS </title>
-<style>
-    .image-container {
-        overflow: hidden;
-        border-radius: 10px;
-        transition: transform 0.5s;
-    }
-    .image-container img {
-        width: 100%;
-        height: auto;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Post</title>
+    <style>
+        .image-container {
+            border-radius: 10px;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-<div class="image-container">
-    <img src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
-</div>
-<script>
-    const images = ["https://mallucampaign.in/images/img_1709296484.jpg", "https://mallucampaign.in/images/img_1709296485.jpg"];
-    let currentImage = 0;
-    const imageContainer = document.querySelector('.image-container');
-
-    function changeImage() {
-        imageContainer.style.transform = "scale(1.1)";
-        setTimeout(() => {
-            imageContainer.style.transform = "scale(1)";
-            currentImage = (currentImage + 1) % images.length;
-            imageContainer.innerHTML = `<img src="${images[currentImage]}" alt="Image ${currentImage + 1}">`;
-        }, 500);
-    }
-
-    setInterval(changeImage, 3000);
-</script>
+    <div class="image-container">
+        <img src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
+    </div>
 </body>
 </html>
