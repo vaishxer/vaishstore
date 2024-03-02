@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Image Animation</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        img {
-            width: 200px;
-            animation: spin 4s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Image Changing Animation</title>
+<style>
+    #imageContainer {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    #imageContainer img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <img id="randomImage" src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Random Image">
-    </div>
-    <script>
-        const images = [
-            "https://mallucampaign.in/images/img_1709296484.jpg",
-            "https://mallucampaign.in/images/img_1709296485.jpg"
-        ];
-        const randomIndex = Math.floor(Math.random() * images.length);
-        document.getElementById("randomImage").src = images[randomIndex];
-    </script>
+<div id="imageContainer">
+    <img id="image" src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
+</div>
+
+<script>
+    const images = [
+        "https://mallucampaign.in/images/img_1709296484.jpg",
+        "https://mallucampaign.in/images/img_1709296485.jpg"
+    ];
+    const imageElement = document.getElementById('image');
+    let currentIndex = 0;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        imageElement.style.opacity = 0;
+        setTimeout(() => {
+            imageElement.src = images[currentIndex];
+            imageElement.style.opacity = 1;
+        }, 500);
+    }, 3000);
+</script>
 </body>
 </html>
