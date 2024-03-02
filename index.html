@@ -87,37 +87,40 @@ function closePopup() {
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Icon Bar</title>
-<style>
-.icon-bar {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Bar</title>
+    <style>
+        .icon-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
 
-.icon {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background: url('https://mallucampaign.in/images/img_1709393093.jpg') no-repeat;
-  background-size: cover;
-  cursor: pointer;
-  margin: 0 10px;
-}
-</style>
+        .icon {
+            display: inline-block;
+            padding: 10px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-
-<div class="icon-bar">
-  <div class="icon" onclick="window.location.href='home.html'"></div>
-</div>
-
+    <div class="icon-bar">
+        <span class="icon" onclick="window.location.href='home.html'">
+            <img src="https://mallucampaign.in/images/img_1709393093.jpg" alt="Home" style="width: 30px; height: 30px;">
+        </span>
+    </div>
 </body>
+
 </html>
