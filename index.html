@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIVATE METHODS </title>
-    <style>
-        :root {
-            --bg-color: #fff; /* Default background color */
-            --text-color: #333; /* Default text color */
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            --bg-color: #333; /* Dark mode background color */
-            --text-color: #fff; /* Dark mode text color */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Change Button</title>
+<style>
+  body {
+    background-color: #f0f0f0; /* Default background color */
+    color: #333; /* Default text color */
+    transition: all 0.5s; /* Smooth transition effect */
+  }
+  .theme-button {
+    padding: 10px 20px;
+    border: 2px solid white; /* White border */
+    box-shadow: 2px 2px 5px white; /* White shadow */
+    border-radius: 5px; /* Nice edge */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+  }
+  .dark-theme {
+    background-color: #333; /* Dark theme background color */
+    color: white; /* Dark theme text color */
+  }
+</style>
 </head>
 <body>
-    <h1>PRIVATE METHODS OFFICIAL</h1>
-    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+<button class="theme-button" onclick="changeTheme()">Change Theme</button>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+<script>
+  function changeTheme() {
+    const body = document.querySelector('body');
+    body.classList.toggle('dark-theme');
+  }
+</script>
 </body>
 </html>
