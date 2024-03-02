@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Side Menu with Telegram Channel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRIVATE METHODS </title>
+<style>
+    .image-container {
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.5s;
+    }
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+</style>
 </head>
 <body>
-    <div class="side-menu">
-        <a href="https://t.me/+fDu-hAhw25EyMGZl" target="_blank">TELEGRAM CHANNEL</a>
-    </div>
+<div class="image-container">
+    <img src="https://mallucampaign.in/images/img_1709296484.jpg" alt="Image 1">
+</div>
+<script>
+    const images = ["https://mallucampaign.in/images/img_1709296484.jpg", "https://mallucampaign.in/images/img_1709296485.jpg"];
+    let currentImage = 0;
+    const imageContainer = document.querySelector('.image-container');
+
+    function changeImage() {
+        imageContainer.style.transform = "scale(1.1)";
+        setTimeout(() => {
+            imageContainer.style.transform = "scale(1)";
+            currentImage = (currentImage + 1) % images.length;
+            imageContainer.innerHTML = `<img src="${images[currentImage]}" alt="Image ${currentImage + 1}">`;
+        }, 500);
+    }
+
+    setInterval(changeImage, 3000);
+</script>
 </body>
 </html>
