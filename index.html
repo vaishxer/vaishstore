@@ -23,7 +23,7 @@
 
 
 
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #222;
+            background-color: #663399;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
@@ -53,7 +53,7 @@
             display: inline-block;
             border: 1px solid #ccc;
             box-sizing: border-box;
-            border-radius: 3px;
+            border-radius: 5px;
         }
         input[type="submit"] {
             background-color: #4CAF50;
@@ -66,13 +66,28 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="nextpage.html" method="post">
+        <form id="loginForm" onsubmit="return validateForm()">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required><br>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required><br>
             <input type="submit" value="Login">
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "private" && password === "loginpage#") {
+                window.location.href = "nextpage.html";
+                return false;
+            } else {
+                alert("Incorrect username or password. You are blocked from accessing the website.");
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
