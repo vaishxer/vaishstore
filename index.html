@@ -14,66 +14,16 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fixed Pill Navigation</title>
-<style>
-  /* Style the pill navigation */
-  .pill-nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-
-  .pill-nav li {
-    float: left;
-  }
-
-  .pill-nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
-  .pill-nav li a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-</style>
+    <title>Visitor Mobile Details</title>
 </head>
 <body>
+    <h1>Visitor Mobile Details</h1>
+    <p id="mobileDetails"></p>
 
-<ul class="pill-nav">
-  <li><a href="https://t.me/+fDu-hAhw25EyMGZl" target="_blank">CHANNEL</a></li>
-  <li><a href="https://wa.me/+639568325366" target="_blank">WHATSAPP</a></li>
-  <li><a href="pw.html" target="_blank">PAID WORKS</a></li>
-</ul>
-
-<script>
-  // Error handling for invalid URLs
-  document.querySelectorAll('.pill-nav li a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (link.getAttribute('href') === '#') {
-        e.preventDefault();
-        console.error('Invalid URL');
-      }
-    });
-  });
-
-  // Exception handling for unexpected errors
-  window.addEventListener('error', function (e) {
-    console.error('An unexpected error occurred:', e.error.message);
-  });
-</script>
-
+    <script>
+        document.getElementById("mobileDetails").innerHTML = "Mobile Device: " + navigator.userAgent;
+    </script>
 </body>
 </html>
