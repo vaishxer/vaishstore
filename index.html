@@ -32,21 +32,44 @@
 
 
 
-    <!DOCTYPE html>
-<html>
+
+
+
+    
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Visitor Mobile Charge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal Writer</title>
+<style>
+    body {
+        font-family: monospace;
+        background-color: #000;
+        color: #0F0;
+        padding: 20px;
+    }
+</style>
 </head>
 <body>
-    <h1>Visitor Mobile Charge:</h1>
-    <p id="mobileCharge"></p>
-
+    <div id="terminal"></div>
     <script>
-        // Simulated mobile charge value
-        let mobileChargeValue = "$50";
-
-        // Display mobile charge on the webpage
-        document.getElementById("mobileCharge").innerText = "Your current mobile charge is: " + mobileChargeValue;
+        const terminal = document.getElementById('terminal');
+        const texts = ['Hello World!', 'This is a terminal writer.', 'Feel free to customize it!'];
+        let index = 0;
+        
+        function type() {
+            if (index < texts.length) {
+                terminal.innerHTML += texts[index] + '<br>';
+                index++;
+                setTimeout(type, 1000);
+            }
+        }
+        
+        type();
     </script>
 </body>
 </html>
