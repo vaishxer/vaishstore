@@ -27,3 +27,31 @@
     <pwe'll try to post helpful contents.</p>
 </body>
 </html>
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Total Visitors</title>
+</head>
+<body>
+    <h1>Total Visitors: <span id="totalVisitors">0</span></h1>
+
+    <script>
+        // Simulating total visitors increment
+        let totalVisitorsCount = 0;
+
+        function updateTotalVisitors() {
+            totalVisitorsCount++;
+            document.getElementById("totalVisitors").innerText = totalVisitorsCount;
+        }
+
+        // Call the function to update total visitors
+        updateTotalVisitors();
+    </script>
+</body>
+</html>
