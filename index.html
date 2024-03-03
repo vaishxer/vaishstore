@@ -50,13 +50,13 @@
             border: 1px solid black;
             position: relative;
         }
-        .snake {
+        #snake {
             width: 10px;
             height: 10px;
             background-color: green;
             position: absolute;
         }
-        .food {
+        #food {
             width: 10px;
             height: 10px;
             background-color: red;
@@ -65,90 +65,53 @@
     </style>
 </head>
 <body>
-    <div id="game-board"></div>
+    <div id="game-board">
+        <div id="snake"></div>
+        <div id="food"></div>
+    </div>
+    <button id="left">Left</button>
+    <button id="right">Right</button>
+    <button id="up">Up</button>
+    <button id="down">Down</button>
+
     <script>
-        const board = document.getElementById('game-board');
-        const snake = [{ x: 200, y: 200 }];
-        const food = { x: 0, y: 0 };
-        let direction = 'right';
+        const snake = document.getElementById('snake');
+        const food = document.getElementById('food');
+        const leftBtn = document.getElementById('left');
+        const rightBtn = document.getElementById('right');
+        const upBtn = document.getElementById('up');
+        const downBtn = document.getElementById('down');
 
-        function drawSnake() {
-            board.innerHTML = '';
-            snake.forEach(segment => {
-                const snakeElement = document.createElement('div');
-                snakeElement.style.left = segment.x + 'px';
-                snakeElement.style.top = segment.y + 'px';
-                snakeElement.classList.add('snake');
-                board.appendChild(snakeElement);
-            });
+        let snakeSize = 1;
+        let foodSize = 1;
+
+        leftBtn.addEventListener('click', () => {
+            // Move snake left
+        });
+
+        rightBtn.addEventListener('click', () => {
+            // Move snake right
+        });
+
+        upBtn.addEventListener('click', () => {
+            // Move snake up
+        });
+
+        downBtn.addEventListener('click', () => {
+            // Move snake down
+        });
+
+        function eatFood() {
+            // Increase snake size
         }
 
-        function drawFood() {
-            const foodElement = document.createElement('div');
-            foodElement.style.left = food.x + 'px';
-            foodElement.style.top = food.y + 'px';
-            foodElement.classList.add('food');
-            board.appendChild(foodElement);
-        }
-
-        function moveSnake() {
-            const head = { ...snake[0] };
-            switch (direction) {
-                case 'up':
-                    head.y -= 10;
-                    break;
-                case 'down':
-                    head.y += 10;
-                    break;
-                case 'left':
-                    head.x -= 10;
-                    break;
-                case 'right':
-                    head.x += 10;
-                    break;
-            }
-            snake.unshift(head);
-            if (head.x === food.x && head.y === food.y) {
-                generateFood();
-            } else {
-                snake.pop();
-            }
+        function checkCollision() {
+            // Check if snake hits the wall or itself
         }
 
         function generateFood() {
-            food.x = Math.floor(Math.random() * 40) * 10;
-            food.y = Math.floor(Math.random() * 40) * 10;
+            // Generate food at random position
         }
-
-        function changeDirection(event) {
-            const key = event.keyCode;
-            switch (key) {
-                case 37:
-                    direction = 'left';
-                    break;
-                case 38:
-                    direction = 'up';
-                    break;
-                case 39:
-                    direction = 'right';
-                    break;
-                case 40:
-                    direction = 'down';
-                    break;
-            }
-        }
-
-        function gameLoop() {
-            moveSnake();
-            drawSnake();
-            drawFood();
-        }
-
-        generateFood();
-        drawFood();
-        drawSnake();
-        document.addEventListener('keydown', changeDirection);
-        setInterval(gameLoop, 100);
     </script>
 </body>
 </html>
