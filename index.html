@@ -40,36 +40,115 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terminal Writer</title>
-<style>
-    body {
-        font-family: monospace;
-        background-color: #000;
-        color: #0F0;
-        padding: 20px;
-    }
-</style>
+    <title>Snake Game</title>
+    <style>
+        #game-board {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .snake {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            position: absolute;
+        }
+        .food {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-    <div id="terminal"></div>
+    <div id="game-board"></div>
     <script>
-        const terminal = document.getElementById('terminal');
-        const texts = ['Hello World!', 'This is a terminal writer.', 'Feel free to customize it!'];
-        let index = 0;
-        
-        function type() {
-            if (index < texts.length) {
-                terminal.innerHTML += texts[index] + '<br>';
-                index++;
-                setTimeout(type, 1000);
+        const board = document.getElementById('game-board');
+        const snake = [{ x: 200, y: 200 }];
+        const food = { x: 0, y: 0 };
+        let direction = 'right';
+
+        function drawSnake() {
+            board.innerHTML = '';
+            snake.forEach(segment => {
+                const snakeElement = document.createElement('div');
+                snakeElement.style.left = segment.x + 'px';
+                snakeElement.style.top = segment.y + 'px';
+                snakeElement.classList.add('snake');
+                board.appendChild(snakeElement);
+            });
+        }
+
+        function drawFood() {
+            const foodElement = document.createElement('div');
+            foodElement.style.left = food.x + 'px';
+            foodElement.style.top = food.y + 'px';
+            foodElement.classList.add('food');
+            board.appendChild(foodElement);
+        }
+
+        function moveSnake() {
+            const head = { ...snake[0] };
+            switch (direction) {
+                case 'up':
+                    head.y -= 10;
+                    break;
+                case 'down':
+                    head.y += 10;
+                    break;
+                case 'left':
+                    head.x -= 10;
+                    break;
+                case 'right':
+                    head.x += 10;
+                    break;
+            }
+            snake.unshift(head);
+            if (head.x === food.x && head.y === food.y) {
+                generateFood();
+            } else {
+                snake.pop();
             }
         }
-        
-        type();
+
+        function generateFood() {
+            food.x = Math.floor(Math.random() * 40) * 10;
+            food.y = Math.floor(Math.random() * 40) * 10;
+        }
+
+        function changeDirection(event) {
+            const key = event.keyCode;
+            switch (key) {
+                case 37:
+                    direction = 'left';
+                    break;
+                case 38:
+                    direction = 'up';
+                    break;
+                case 39:
+                    direction = 'right';
+                    break;
+                case 40:
+                    direction = 'down';
+                    break;
+            }
+        }
+
+        function gameLoop() {
+            moveSnake();
+            drawSnake();
+            drawFood();
+        }
+
+        generateFood();
+        drawFood();
+        drawSnake();
+        document.addEventListener('keydown', changeDirection);
+        setInterval(gameLoop, 100);
     </script>
 </body>
 </html>
