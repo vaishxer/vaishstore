@@ -1,78 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locked Image Navigation</title>
     <style>
-        body {
-            background-color: black;
-            font-family: monospace;
-            color: white;
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.locked {
+            background-image: url('https://mallucampaign.in/images/img_1709771918.jpg');
+            background-size: cover;
+            background-position: center;
+            color: transparent;
         }
     </style>
 </head>
+
 <body>
 
+    <div class="topnav">
+        <a href="#" class="locked">Locked Image</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Visitor Mobile Details</title>
-</head>
-<body>
-    <h1>Visitor Mobile Details</h1>
-    <p id="mobileDetails"></p>
-
-    <script>
-        document.getElementById("mobileDetails").innerHTML = "Mobile Device: " + navigator.userAgent;
-    </script>
 </body>
-</html>
 
-
-
-
-
-
-
-
-    
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Text Repeater</title>
-</head>
-<body>
-<h1>Text Repeater</h1>
-<label for="text">Enter Text:</label>
-<input type="text" id="text" placeholder="Enter text here">
-<label for="amount">Amount:</label>
-<input type="number" id="amount" placeholder="Enter amount">
-<button onclick="repeatText()">Repeat Text</button>
-<p id="output"></p>
-<button onclick="copyText()">Copy</button>
-
-<script>
-function repeatText() {
-  const text = document.getElementById('text').value;
-  const amount = document.getElementById('amount').value;
-  document.getElementById('output').innerText = text.repeat(amount);
-}
-
-function copyText() {
-  const output = document.getElementById('output');
-  const textArea = document.createElement('textarea');
-  textArea.value = output.innerText;
-  document.body.appendChild(textArea);
-  textArea.select();
-  document.execCommand('copy');
-  textArea.remove();
-  alert('Text copied to clipboard');
-}
-</script>
-</body>
 </html>
