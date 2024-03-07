@@ -207,4 +207,36 @@
 </html>
 
 
-        
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Logo with Animation</title>
+<style>
+    .fixed-logo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        animation: slideUp 5s infinite;
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+<body>
+    <img class="fixed-logo" src="https://mallucampaign.in/images/img_1709813711.jpg" alt="Logo">
+</body>
+</html>
+
