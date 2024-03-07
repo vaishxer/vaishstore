@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="https://vaishxer.github.io/vaishstore">Home</a>
+  <a href="services.html">Services</a>
+</div>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Touches</title>
+    <script>
+        document.addEventListener('click', function(e) {
+            const touch = document.createElement('div');
+            touch.className = 'touch';
+            touch.style.top = e.clientY + 'px';
+            touch.style.left = e.clientX + 'px';
+            document.body.appendChild(touch);
+            setTimeout(function() {
+                touch.remove();
+            }, 500);
+        });
+    </script>
+    <style>
+        .touch {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: ripple 0.5s linear;
+        }
+        @keyframes ripple {
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
