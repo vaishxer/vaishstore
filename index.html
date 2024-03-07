@@ -237,3 +237,61 @@
     <img src="https://mallucampaign.in/images/img_1709813711.jpg" alt="Logo" class="logo">
 </body>
 </html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitor's Mobile Information</title>
+<style>
+    #mobileInfo {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+<h1>Welcome Visitor!</h1>
+<button onclick="showMobileInfo()">Show My Mobile Info</button>
+<div id="mobileInfo">
+    <h2>Visitor's Mobile Information</h2>
+    <p>Mobile Name: <span id="mobileName"></span></p>
+    <p>Mobile OS: <span id="mobileOS"></span></p>
+</div>
+<script>
+    function showMobileInfo() {
+        const mobileInfo = document.getElementById("mobileInfo");
+        mobileInfo.style.display = "block";
+        document.getElementById("mobileName").innerText = navigator.vendor;
+        document.getElementById("mobileOS").innerText = navigator.platform;
+    }
+</script>
+</body>
+</html>
