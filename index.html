@@ -83,3 +83,46 @@
 
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Touches</title>
+    <script>
+        document.addEventListener('click', function(e) {
+            const touch = document.createElement('div');
+            touch.className = 'touch';
+            touch.style.top = e.clientY + 'px';
+            touch.style.left = e.clientX + 'px';
+            document.body.appendChild(touch);
+            setTimeout(function() {
+                touch.remove();
+            }, 500);
+        });
+    </script>
+    <style>
+        .touch {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: ripple 0.5s linear;
+        }
+        @keyframes ripple {
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
