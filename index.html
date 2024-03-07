@@ -248,50 +248,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visitor's Mobile Information</title>
-<style>
-    #mobileInfo {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-        animation: fadeIn 0.5s ease-out;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer for 10 Years</title>
 </head>
 <body>
-<h1>Welcome Visitor!</h1>
-<button onclick="showMobileInfo()">Show My Mobile Info</button>
-<div id="mobileInfo">
-    <h2>Visitor's Mobile Information</h2>
-    <p>Mobile Name: <span id="mobileName"></span></p>
-    <p>Mobile OS: <span id="mobileOS"></span></p>
-</div>
-<script>
-    function showMobileInfo() {
-        const mobileInfo = document.getElementById("mobileInfo");
-        mobileInfo.style.display = "block";
-        document.getElementById("mobileName").innerText = navigator.vendor;
-        document.getElementById("mobileOS").innerText = navigator.platform;
-    }
-</script>
+    <h1>Timer for 10 Years</h1>
+    <p id="timer"></p>
+
+    <script>
+        const countDownDate = new Date().getTime() + 10 * 365 * 24 * 60 * 60 * 1000;
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const years = Math.floor(distance / (365 * 24 * 60 * 60 * 1000));
+            const days = Math.floor((distance % (365 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
+
+            document.getElementById("timer").innerHTML = `Remaining: ${years} years and ${days} days`;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Timer Expired";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
