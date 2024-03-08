@@ -43,37 +43,96 @@ type();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chip Card Display</title>
-<style>
-    .chip-card {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Runner Game</title>
+    <style>
+        #gameArea {
+            width: 100%;
+            height: 400px;
+            background-color: lightblue;
+            position: relative;
+        }
+        #character {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://telegra.ph/file/39c722237f30982ca6f9a.png');
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+        }
+        .rock {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://telegra.ph/file/d2e70c74207ad01eea8bc.png');
+            background-size: cover;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-<div class="chip-card" id="chipCard">Please wait... Checking website...</div>
-<script>
-    const chipCard = document.getElementById('chipCard');
-    
-    // Show chip card for 7 seconds
-    chipCard.style.display = 'block';
-    setTimeout(() => {
-        chipCard.style.display = 'none';
-        // Show pop-up message after 7 seconds
-        alert('Secure website.');
-    }, 7000);
-</script>
+    <div id="gameArea" onclick="jumpCharacter()"></div>
+    <script>
+        let character = document.getElementById('character');
+        let gameArea = document.getElementById('gameArea');
+        let score = 0;
+        let isGameOver = false;
+
+        function jumpCharacter() {
+            if (!isGameOver) {
+                // Jump logic here
+            }
+        }
+
+        function createRock() {
+            if (!isGameOver) {
+                let rock = document.createElement('div');
+                rock.classList.add('rock');
+                rock.style.left = `${Math.random() * 90}%`;
+                gameArea.appendChild(rock);
+
+                // Move rock downwards
+                let rockInterval = setInterval(() => {
+                    if (!isGameOver) {
+                        // Move rock logic here
+                    } else {
+                        clearInterval(rockInterval);
+                    }
+                }, 20);
+            }
+        }
+
+        function checkCollision() {
+            let characterRect = character.getBoundingClientRect();
+            let rocks = document.querySelectorAll('.rock');
+
+            rocks.forEach(rock => {
+                let rockRect = rock.getBoundingClientRect();
+                if (
+                    rockRect.top >= characterRect.top &&
+                    rockRect.top <= characterRect.bottom &&
+                    rockRect.left >= characterRect.left &&
+                    rockRect.left <= characterRect.right
+                ) {
+                    endGame();
+                }
+            });
+        }
+
+        function endGame() {
+            isGameOver = true;
+            alert(`Game Over! Your score: ${score}`);
+            // Additional logic to handle game over
+        }
+
+        setInterval(() => {
+            if (!isGameOver) {
+                score++;
+                createRock();
+                checkCollision();
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
