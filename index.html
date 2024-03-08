@@ -2,35 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advertisement Display</title>
+    <title>reCAPTCHA Verification</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <div id="adContainer">
-        <!-- Advertisements will be displayed here -->
-    </div>
-
+    <h1>reCAPTCHA Verification</h1>
+    <form action="submit.php" method="POST">
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+        <button type="submit">Submit</button>
+    </form>
+    
     <script>
-        try {
-            // Code to fetch and display advertisements
-            // Example: Fetching ad content from an API
-            fetch('https://api.example.com/ads')
-                .then(response => response.json())
-                .then(data => {
-                    const adContainer = document.getElementById('adContainer');
-                    adContainer.innerHTML = `<img src="${data.adImageUrl}" alt="Advertisement">`;
-                })
-                .catch(error => {
-                    console.error('Error fetching ad:', error);
-                    // Handle error - Display a default ad or show an error message
-                    const adContainer = document.getElementById('adContainer');
-                    adContainer.innerHTML = `<p>Failed to load advertisement. Please try again later.</p>`;
-                });
-        } catch (error) {
-            console.error('An error occurred:', error);
-            // Handle exception - Log the error and inform the user
-            alert('An error occurred while loading the advertisement. Please try refreshing the page.');
+        function onSubmit(token) {
+            document.getElementsByTagName('form')[0].submit();
         }
     </script>
 </body>
