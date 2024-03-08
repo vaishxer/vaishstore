@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>PRIVATE METHODS</title>
+    <style>
+        .icon {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.2s;
+        }
+        .icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <img class="icon" src="https://mallucampaign.in/images/img_1709773363.jpg" onclick="window.location.href='https://t.me/+fDu-hAhw25EyMGZl'" alt="Join 1">
+    <img class="icon" src="https://mallucampaign.in/images/img_1709773429.jpg" onclick="window.location.href='wa.html'" alt="wa me 2">
+    <img class="icon" src="https://mallucampaign.in/images/img_1709773558.jpg" onclick="window.location.href='about.html'" alt="Icon 3">
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vaish</title>
+    <style>
+        body {
+            background-color: black;
+            color: #FFFFFF;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Private Methods</h1>
+    <p>Smart web💀</p>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
     <title>Top Navigation Icons</title>
     <style>
         .icon {
@@ -83,6 +131,224 @@
 
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Touches</title>
+    <script>
+        document.addEventListener('click', function(e) {
+            const touch = document.createElement('div');
+            touch.className = 'touch';
+            touch.style.top = e.clientY + 'px';
+            touch.style.left = e.clientX + 'px';
+            document.body.appendChild(touch);
+            setTimeout(function() {
+                touch.remove();
+            }, 500);
+        });
+    </script>
+    <style>
+        .touch {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: ripple 0.5s linear;
+        }
+        @keyframes ripple {
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slideshow with Arrows</title>
+  <style>
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    .mySlides {
+      display: none;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+  <div class="mySlides">
+    <img src="https://mallucampaign.in/images/img_1709297836.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://mallucampaign.in/images/img_1709296484.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <img src="https://mallucampaign.in/images/img_1709296485.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Logo with Animation</title>
+<style>
+    .logo {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        animation: logoAnimation 5s infinite;
+        width: 100px;
+        height: auto;
+    }
+
+    @keyframes logoAnimation {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+    <img src="https://mallucampaign.in/images/img_1709813711.jpg" alt="Logo" class="logo">
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Menu Icon</title>
+<style>
+  /* Styles for the menu icon */
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .menu-icon span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+  }
+  .menu-icon.open span:nth-child(2) {
+    opacity: 0;
+  }
+  /* Styles for the navigation links */
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<div class="menu-icon" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="nav-links" id="navLinks">
+  <a href="services.html">Services</a>
+  <a href="https://private-methods.vercel.app/">Home</a>
+</div>
+
+<script>
+function toggleMenu() {
+  const menuIcon = document.querySelector('.menu-icon');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuIcon.classList.toggle('open');
+  navLinks.classList.toggle('open');
+}
+</script>
+</body>
+</html>
+
 
 
 
