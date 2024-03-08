@@ -3,6 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typewriter Effect</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #0F0;
+        text-align: center;
+        padding: 20px;
+    }
+    .typewriter-text {
+        overflow: hidden; /* Ensures the text is not revealed until the animation */
+        border-right: .15em solid #0F0; /* Cursor effect */
+        white-space: nowrap; /* Keeps the text on one line */
+        margin: 0 auto; /* Gives that typewriter effect */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #0F0; }
+    }
+</style>
+</head>
+<body>
+<div class="typewriter-text">Hello viewers. Our services will start soon... We'll give notifications to you...</div>
+
+<script>
+    // Error handling for missing element
+    const typewriterText = document.querySelector('.typewriter-text');
+    if (!typewriterText) {
+        console.error('Element with class "typewriter-text" not found.');
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Chips</title>
 <style>
     /* CSS for Contact Chips */
