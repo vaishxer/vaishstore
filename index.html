@@ -45,37 +45,35 @@ type();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Screen Scanning Effect</title>
+<title>Chip Card Display</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  .scanning {
-    font-size: 2em;
-    animation: scanningEffect 5s linear forwards;
-  }
-  @keyframes scanningEffect {
-    0% {
-      content: "";
+    .chip-card {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
     }
-    100% {
-      content: "SECURE WEBSITE";
-    }
-  }
 </style>
 </head>
 <body>
-<div class="scanning"></div>
+<div class="chip-card" id="chipCard">Please wait... Checking website...</div>
 <script>
-  setTimeout(() => {
-    document.querySelector('.scanning').textContent = "SECURE WEBSITE";
-  }, 5000);
+    const chipCard = document.getElementById('chipCard');
+    
+    // Show chip card for 7 seconds
+    chipCard.style.display = 'block';
+    setTimeout(() => {
+        chipCard.style.display = 'none';
+        // Show pop-up message after 7 seconds
+        alert('Secure website.');
+    }, 7000);
 </script>
 </body>
 </html>
