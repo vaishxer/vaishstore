@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Group Chat</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Video Call</title>
 </head>
 <body>
-<h1>Group Chat</h1>
-<div id="chat"></div>
-<input type="text" id="message" placeholder="Type your message...">
-<button onclick="sendMessage()">Send</button>
-
-<script>
-function sendMessage() {
-    const messageInput = document.getElementById('message');
-    const message = messageInput.value;
+    <h1>Random Video Call Website</h1>
     
-    if (message.trim() !== '') {
-        displayMessage(message);
-        messageInput.value = '';
-    } else {
-        alert('Please enter a message.');
-    }
-}
-
-function displayMessage(message) {
-    const chatDiv = document.getElementById('chat');
-    const messageElement = document.createElement('p');
-    messageElement.textContent = message;
-    chatDiv.appendChild(messageElement);
-}
-</script>
+    <video id="localVideo" autoplay></video>
+    <video id="remoteVideo" autoplay></video>
+    
+    <script>
+        const localVideo = document.getElementById('localVideo');
+        const remoteVideo = document.getElementById('remoteVideo');
+        
+        // Code to start video call and connect with another user
+        function startVideoCall() {
+            // Code to connect with another user
+            // This can involve signaling servers, WebRTC APIs, etc.
+            // For simplicity, we will simulate the connection process
+            const randomUserId = Math.floor(Math.random() * 1000); // Generate a random user ID
+            console.log('Connecting to user: ' + randomUserId);
+            
+            // Simulating video call connection
+            // In a real scenario, this would involve WebRTC APIs for peer-to-peer communication
+            setTimeout(() => {
+                console.log('Connected to user: ' + randomUserId);
+                // Code to start video streaming
+                // This can involve getUserMedia API for capturing video/audio
+                // For simplicity, we will not implement the video streaming logic here
+            }, 2000); // Simulating a 2-second connection delay
+        }
+        
+        startVideoCall(); // Initiating the video call when the page loads
+    </script>
 </body>
 </html>
