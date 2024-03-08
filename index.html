@@ -2,39 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Video Call</title>
+    <title>Facebook Post</title>
+    <style>
+        .post {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .user .name {
+            font-weight: bold;
+        }
+        .verified {
+            color: blue;
+            margin-left: 5px;
+        }
+        .comments {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Random Video Call Website</h1>
-    
-    <video id="localVideo" autoplay></video>
-    <video id="remoteVideo" autoplay></video>
-    
-    <script>
-        const localVideo = document.getElementById('localVideo');
-        const remoteVideo = document.getElementById('remoteVideo');
-        
-        // Code to start video call and connect with another user
-        function startVideoCall() {
-            // Code to connect with another user
-            // This can involve signaling servers, WebRTC APIs, etc.
-            // For simplicity, we will simulate the connection process
-            const randomUserId = Math.floor(Math.random() * 1000); // Generate a random user ID
-            console.log('Connecting to user: ' + randomUserId);
-            
-            // Simulating video call connection
-            // In a real scenario, this would involve WebRTC APIs for peer-to-peer communication
-            setTimeout(() => {
-                console.log('Connected to user: ' + randomUserId);
-                // Code to start video streaming
-                // This can involve getUserMedia API for capturing video/audio
-                // For simplicity, we will not implement the video streaming logic here
-            }, 2000); // Simulating a 2-second connection delay
-        }
-        
-        startVideoCall(); // Initiating the video call when the page loads
-    </script>
+    <div class="post">
+        <div class="user">
+            <img src="profile-pic.jpg" alt="Profile Picture">
+            <div class="name">AB</div>
+            <span class="verified">✔</span>
+        </div>
+        <div class="content">
+            This is a sample Facebook post.
+        </div>
+        <div class="comments">
+            <div class="comment">
+                <span class="name">User1:</span> Nice post!
+            </div>
+            <div class="comment">
+                <span class="name">User2:</span> Great content!
+            </div>
+        </div>
+    </div>
 </body>
 </html>
