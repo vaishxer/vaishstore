@@ -1,179 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
-<style>
-    #overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  <title>HTML Quiz</title>
+  <style>
+    /* CSS styles for the quiz */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
     }
-    #progress {
-        width: 50%;
-        background-color: #3498db;
-        color: white;
-        text-align: center;
-        padding: 10px;
+    
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-</style>
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .question {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .options {
+      margin-bottom: 20px;
+    }
+    
+    .option {
+      margin-bottom: 10px;
+    }
+    
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .result {
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-<div id="overlay">
-    <div id="progress">Loading...</div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(function() {
-            document.getElementById("overlay").style.display = "none";
-        }, 30000); // 30 seconds
+  <div class="quiz-container">
+    <h1>HTML Quiz</h1>
+    
+    <div class="question">
+      <p>What does HTML stand for?</p>
+    </div>
+    
+    <div class="options">
+      <div class="option">
+        <input type="radio" name="q1" value="a">
+        <label for="q1">Hyper Text Markup Language</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q1" value="b">
+        <label for="q1">Hyperlinks and Text Markup Language</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q1" value="c">
+        <label for="q1">Home Tool Markup Language</label>
+      </div>
+    </div>
+    
+    <div class="question">
+      <p>Which tag is used to define a paragraph in HTML?</p>
+    </div>
+    
+    <div class="options">
+      <div class="option">
+        <input type="radio" name="q2" value="a">
+        <label for="q2">p</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q2" value="b">
+        <label for="q2">h1</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q2" value="c">
+        <label for="q2">div</label>
+      </div>
+    </div>
+    
+    <div class="question">
+      <p>Which attribute is used to specify the URL of an image in HTML?</p>
+    </div>
+    
+    <div class="options">
+      <div class="option">
+        <input type="radio" name="q3" value="a">
+        <label for="q3">src</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q3" value="b">
+        <label for="q3">alt</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="q3" value="c">
+        <label for="q3">href</label>
+      </div>
+    </div>
+    
+    <button class="submit-btn">Submit</button>
+    
+    <div class="result"></div>
+  </div>
+  
+  <script>
+    // JavaScript code for checking the answers
+    const submitBtn = document.querySelector('.submit-btn');
+    const resultDiv = document.querySelector('.result');
+    
+    submitBtn.addEventListener('click', () => {
+      const q1Answer = document.querySelector('input[name="q1"]:checked');
+      const q2Answer = document.querySelector('input[name="q2"]:checked');
+      const q3Answer = document.querySelector('input[name="q3"]:checked');
+      
+      if (q1Answer && q2Answer && q3Answer) {
+        const answers = [q1Answer.value, q2Answer.value, q3Answer.value];
+        const correctAnswers = ['a', 'a', 'a'];
+        let score = 0;
+        
+        for (let i = 0; i < answers.length; i++) {
+          if (answers[i] === correctAnswers[i]) {
+            score++;
+          }
+        }
+        
+        resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}!`;
+      } else {
+        resultDiv.textContent = 'Please answer all the questions.';
+      }
     });
-</script>
+  </script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>invalid❌</title>
-<style>
-    .box {
-        width: 200px;
-        height: 100px;
-        background-color: #f0f0f0;
-        border-radius: 10px;
-        text-align: center;
-        line-height: 100px;
-        position: relative;
-        overflow: hidden;
-    }
-    .text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #f0f0f0;
-        color: #333;
-        clip-path: inset(0 0 0 100%);
-        animation: slide 2s forwards;
-    }
-    @keyframes slide {
-        to {
-            clip-path: inset(0 0 0 0);
-        }
-    }
-</style>
-</head>
-<body>
-<div class="box">
-    <div class="text">👋Oh unavailable - </div>
-</div>
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-  .navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-</style>
-</head>
-<body>
-
-<div class="navbar">
-  <a href="https://vaishxer.github.io/vaishstore">Home</a>
-  <a href="services.html">Services</a>
-</div>
-
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Show Touches</title>
-    <script>
-        document.addEventListener('click', function(e) {
-            const touch = document.createElement('div');
-            touch.className = 'touch';
-            touch.style.top = e.clientY + 'px';
-            touch.style.left = e.clientX + 'px';
-            document.body.appendChild(touch);
-            setTimeout(function() {
-                touch.remove();
-            }, 500);
-        });
-    </script>
-    <style>
-        .touch {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #000;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            animation: ripple 0.5s linear;
-        }
-        @keyframes ripple {
-            100% {
-                width: 200px;
-                height: 200px;
-                opacity: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-</body>
-</html>
+    </html>
