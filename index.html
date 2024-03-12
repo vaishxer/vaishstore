@@ -3,16 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRIVATE METHODS OFFICIAL ✅💀</title>
-<link rel="stylesheet" href="styles.css">
+<title>Dark Theme with Animated Border</title>
+<style>
+    body {
+        background-color: #111;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .border {
+        border: 2px solid transparent;
+        border-radius: 5px;
+        animation: changeColor 5s infinite;
+    }
+    @keyframes changeColor {
+        0% { border-color: #ff6347; }
+        25% { border-color: #1e90ff; }
+        50% { border-color: #32cd32; }
+        75% { border-color: #ff69b4; }
+        100% { border-color: #ffd700; }
+    }
+</style>
 </head>
 <body>
-<div class="container">
-  <h1>Welcome 👋</h1>
+<div class="border">
+    <h1>Welcome to Our Website</h1>
+    <p>Enjoy the dynamic border colors!</p>
 </div>
-<script src="script.js"></script>
+<script>
+    // Error handling for animation support
+    const borderElement = document.querySelector('.border');
+    if (window.getComputedStyle(borderElement).animationName === 'none') {
+        console.error('Animation not supported. Please check your browser compatibility.');
+    }
+</script>
 </body>
 </html>
+
 
 
 
