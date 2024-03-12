@@ -49,30 +49,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Buttons</title>
+<style>
+    body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .button {
+        font-size: 24px;
+        padding: 15px 30px;
+        margin: 10px;
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff00e0, #00ff9c, #00b0ff, #ff00e0);
+        transition: 0.5s;
+    }
+
+    .button:hover::before {
+        left: 100%;
+    }
+
+    .speaker {
+        background-color: transparent;
+        border: 2px solid #ff00e0;
+    }
+
+    .mobile {
+        background-color: transparent;
+        border: 2px solid #00ff9c;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-       
-        <p>Choose a topic:</p>
-        <button id="speakerBtn">Speaker Cleaner</button>
-        <button id="coolerBtn">Mobile Cooler</button>
-    </div>
-
-    <script>
-        document.getElementById('speakerBtn').addEventListener('click', function() {
-            window.location.href = 'speaker.html';
-        });
-
-        document.getElementById('coolerBtn').addEventListener('click', function() {
-            window.location.href = 'mobilecooler.html';
-        });
-    </script>
+    <a href="speaker.html" class="button speaker">SPEAKER CLEANER</a>
+    <a href="mobilecooler.html" class="button mobile">MOBILE COOLER</a>
 </body>
 </html>
-
-
-
