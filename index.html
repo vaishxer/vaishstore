@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluid Simulation</title>
-    <style>
-        /* CSS for the fluid container */
-        .fluid-container {
-            width: 100%;
-            height: 400px;
-            background-color: #3498db; /* Blue color for fluid */
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* CSS for the fluid particle */
-        .fluid-particle {
-            width: 10px;
-            height: 10px;
-            background-color: #fff; /* White color for particles */
-            position: absolute;
-            border-radius: 50%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluid Simulation with Rainbow Effect</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="fluid-container" id="fluidContainer"></div>
-
-    <script>
-        // JavaScript for fluid simulation
-        const container = document.getElementById('fluidContainer');
-
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.classList.add('fluid-particle');
-            particle.style.left = Math.random() * container.offsetWidth + 'px';
-            particle.style.top = Math.random() * container.offsetHeight + 'px';
-            container.appendChild(particle);
-
-            // Add animation to the particle
-            particle.animate([
-                { transform: 'translate(0, 0)' },
-                { transform: 'translate(' + (Math.random() * 100 - 50) + 'px, ' + (Math.random() * 100 - 50) + 'px)' }
-            ], {
-                duration: Math.random() * 2000 + 1000,
-                iterations: Infinity
-            });
-        }
-
-        // Create particles at regular intervals
-        setInterval(createParticle, 100);
-    </script>
+<div class="container">
+  <canvas id="canvas"></canvas>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
