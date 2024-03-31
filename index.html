@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Viewer</title>
+<style>
+    /* Add your CSS styles here */
+</style>
+</head>
+<body>
+    <input type="file" accept="video/*" id="videoUpload" onchange="handleVideoUpload(event)">
+    <div id="videoPlayer"></div>
+
+    <script>
+        function handleVideoUpload(event) {
+            const videoFile = event.target.files[0];
+            const videoPlayer = document.getElementById('videoPlayer');
+
+            if (videoFile.type.startsWith('video/')) {
+                const videoURL = URL.createObjectURL(videoFile);
+                videoPlayer.innerHTML = `<video controls><source src="${videoURL}" type="${videoFile.type}"></video>`;
+            } else {
+                alert('Please upload a valid video file.');
+            }
+        }
+    </script>
+</body>
+</html>
