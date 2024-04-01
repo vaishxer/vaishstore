@@ -24,3 +24,39 @@
 
 
 
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Bulb Line Design</title>
+<style>
+    body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .neon-line {
+        width: 200px;
+        height: 2px;
+        background-color: #fff;
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
+        animation: glow 1s infinite alternate;
+    }
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
+        }
+        to {
+            box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff, 0 0 160px #fff;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="neon-line"></div>
+</body>
+</html>
