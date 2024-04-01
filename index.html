@@ -60,3 +60,57 @@
     <div class="neon-line"></div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Sticker</title>
+<style>
+  .emoji {
+    cursor: pointer;
+    animation: bounce 0.5s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+</style>
+</head>
+<body>
+<div class="emoji" onclick="showPopup()">🔎</div>
+<div class="popup" id="popup">SORRY MODS NOT AVAILABLE AT THIS TIME. WE'LL UPLOAD MODS SOON....</div>
+
+<script>
+  function showPopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'block';
+    navigator.vibrate(1000); // Vibrate for 1000ms (1 second)
+  }
+</script>
+</body>
+</html>
